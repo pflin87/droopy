@@ -170,4 +170,4 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
 
 Copyright
 
-Copyright (c) 2015-Present Matt Kirk 2009-11 Wynn Netherland. See LICENSE for details.
+Copyright (c) 2015-Mohd Saeed Khan. See LICENSE for details.
