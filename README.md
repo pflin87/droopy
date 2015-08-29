@@ -2,7 +2,7 @@
 Custom Dropdown having single and multi select functionality
 
 ## Demo
-[Click me --:](https://github.com/naukri-engineering)
+[Click me --:](https://github.com/saeed3e/dropdown)
 
 -------------------------------------------------------
 
@@ -21,16 +21,10 @@ Custom Dropdown having single and multi select functionality
 
 -------------------------------------------------------
 
-# Getting Started
-* Include the [Style Sheet]() for suggestor design.
-* Include the suggestor [javascript library]().
-* Add required HTML
-
--------------------------------------------------------
 
 ## Features
 
--------------------------------------------------------
+
 -------------------------------------------------------
 
 
@@ -119,7 +113,7 @@ tags  | Boolean | true | To enable/disable tags for "Multiple Select" case
 tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill case) when tags are created on prefill basis it automaitcally sorted to stop this behaviour, specify "false" parameter
 
 
-### Methods
+## Methods
 
 #### addData()
 
