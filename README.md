@@ -152,7 +152,7 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
 #### onClickLi()
 #### onClearTag()
 
-### Developer
+### Author
    [Mohd Saeed Khan](http://www.saeed3e.com)
 
 ### Contributer
