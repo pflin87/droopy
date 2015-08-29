@@ -112,6 +112,10 @@ allChk	  | Boolean | false |	-	A super parent named All wil be at the top of all
 	  |	    |	    |		o	Uncheck ALL(super parent ) will uncheck all parent and children below ALL.
 select | method | none | to make automatic Selection
 deselect | method | none | to make automatic deselection
+postPlaceholder | | |
+isSearch | | |
+sortPrefix | | |
+
 
 ### Methods
 
@@ -133,3 +137,7 @@ deselect | method | none | to make automatic deselection
     
     For multiple Selection
     instance.deselect({'key':[2.2,4.1]});
+
+#### onChange()
+
+#### replaceData()
