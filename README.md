@@ -120,6 +120,10 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
   instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
 
 
+#### destroy()
+    To destroy dropdown call 
+    instance.destroy();
+
 #### select()
     For Single Selection
     instance.select({'key':'2'});
@@ -135,22 +139,26 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
     instance.deselect({'key':[2.2,4.1]});
 
 #### onChange()
+     This callback fire only when a value change in dropdown
 
-#### replaceData()
+#### onDeselect()
+     It's fire only when a value has been deselected
 
 #### onTagCreate()
+     Fire only a tag has been created/append in DOM
 
 #### onTagClick()
+     It's fire only when click on tag has been made
 
 #### onClickReq()
+     It's fire only when we click on any listing item either via mouse or touch
 
-#### destroy()
-
-#### onTagCrt()
-#### onTagClk()
-#### onDeselect()
-#### onClickLi()
 #### onClearTag()
+     Call back function for click on clearTag/clearAllTsg
+
+#### replaceData()
+     This function is to replace all data from new one.
+
 
 ### Author
    [Mohd Saeed Khan](http://www.saeed3e.com)
@@ -159,3 +167,7 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
     Nitin
     Sakshi
     Mahima
+
+Copyright
+
+Copyright (c) 2015-Present Matt Kirk 2009-11 Wynn Netherland. See LICENSE for details.
