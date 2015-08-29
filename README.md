@@ -2,7 +2,7 @@
 Custom Dropdown having single and multi select functionality
 
 ## Demo
-[Click me --:](http://dev1.infoedge.com/Saeed/DD/)
+[Click me --:](https://github.com/naukri-engineering)
 
 -------------------------------------------------------
 
@@ -73,8 +73,8 @@ var dataJson = {
 
 ```javascript
 var params = {
-	id : optGrpSingleSelect,  // should be id of dropdown main container
-	data : dropdown_jsonData_object
+	id : "single",  // should be id of dropdown main container
+	data : JSONdata 
     };
     new DD(params);
 ```
