@@ -5,7 +5,6 @@ Custom Dropdown having single and multi select functionality
 [Click me --:](http://dev1.infoedge.com/Saeed/DD/)
 
 -------------------------------------------------------
--------------------------------------------------------
 
 ## Browser Support
 * Internet Explorer 8+
@@ -15,6 +14,11 @@ Custom Dropdown having single and multi select functionality
 * Opera 11+
 
 -------------------------------------------------------
+
+## Size
+* Minified: 24.16 KB
+* Gzip: 7.71 KB
+
 -------------------------------------------------------
 
 # Getting Started
@@ -22,7 +26,6 @@ Custom Dropdown having single and multi select functionality
 * Include the suggestor [javascript library]().
 * Add required HTML
 
--------------------------------------------------------
 -------------------------------------------------------
 
 ## Features
@@ -70,9 +73,8 @@ var dataJson = {
 
 ```javascript
 var params = {
-        id: {
-            "optGrpSingleSelect": [CurrentLocObj]
-        }
+	id : optGrpSingleSelect,  // should be id of dropdown main container
+	data : dropdown_jsonData_object
     };
     new DD(params);
 ```
