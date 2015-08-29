@@ -2,7 +2,7 @@
 Custom Dropdown having single and multi select functionality
 
 ## Demo
-[Click me --:](https://github.com/saeed3e/dropdown)
+[Click me --:](http://saeed3e.github.io/dropdown/)
 
 -------------------------------------------------------
 
