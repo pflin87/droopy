@@ -154,3 +154,8 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
 
 ### Developer
    [Mohd Saeed Khan](http://www.saeed3e.com)
+
+### Contributer
+    Nitin
+    Sakshi
+    Mahima
