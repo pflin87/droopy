@@ -23,7 +23,15 @@ Custom Dropdown having single and multi select functionality
 
 
 ## Features
-
+* Single Select 
+* Multiple Select
+* Search functionality.
+* Prefill/preselected for single and mulitple select cases
+* Create Tags for selection.
+* Tags can be created in saperate/different container(even not a part of dropdown) also.
+* Can enable or disabled search.
+* Also used when show data in list form
+* Also support dependent feature for single/multiple select at any number of level (e.g. DropdownC is depended to DropdownB and DropdownB is depended to DropdownA adn so on upto 'N' level.)
 
 -------------------------------------------------------
 
@@ -55,10 +63,10 @@ var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymb
 MultiDimension Data (optGroup Case):
 
 var dataJson = {
-                Country : { "1":"Afghanistan & india" , "2":"Albania" , "3":"Algeria" , "4":"zymbombay" },
-                State   : { "5a":"United & india" , "6a":"Albania" , "7a":"agra" , "8a":"United Kingdom"},
-                Distict : { "13":"Pakistan & india" , "14":"Albania" , "15":"Algeria" , "16":"United Kingdom"},
-                City    : { "17a":"Saudi Arabia & india" , "18a":"Albania" , "19a":"Algeria"}
+                Country : { "1":"India" , "2":"Albania" , "3":"Algeria" , "4":"America" },
+                State   : { "5a":"Delhi" , "6a":"Uttar Paradesh" , "7a":"GOA" , "8a":"United Kingdom"},
+                Distict : { "13":"Kanpur" , "14":"Lucknow" , "15":"Bareiily" , "16":"Moradabad"},
+                City    : { "17a":"Shahjahanpur" , "18a":"Bareilly" , "19a":"Lucknow"}
             }
 ```
 
@@ -108,7 +116,7 @@ select | method | none | to make automatic Selection
 sortPrefix | | |
 tagwithOptGroup | Boolean|  false| If you want to creat tags with optgroup text
 tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Valid only for multiple select)
-tagTitle | | |
+tagTitle | Boolean | false | To enable title text on tags
 tags  | Boolean | true | To enable/disable tags for "Multiple Select" case
 tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill case) when tags are created on prefill basis it automaitcally sorted to stop this behaviour, specify "false" parameter
 
