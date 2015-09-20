@@ -92,7 +92,7 @@ clearTagId  | String | none  | Node Id, to clear the druthers selected values
 isSearch | boolean| true | to enable/disable search
 maxTagsCount | Integer | 999 | to limit number of tags creation.
 maxHeight | Integer|  300 | To set druthers max height
-noDataTxt | String | No data found in search |   Text which is shown when no data will be found in search
+noDataTxt | String | "No data found in search" |   Text which is shown when no data will be found in search
 checkBox | boolean | false | to switch in singleSelect/multiSelect mode.
 preText | String  | "You have selected" |  to show pretext when selection made from druthers in "tagInSeparate" container case
 postText | String | "item(s)" |  to show posttext when selection made from druthers in "tagInSeparate" container case
@@ -111,17 +111,22 @@ tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill 
 
 ## Methods
 
-#### addData()
+#### addData() : To add new data in existing druthers
+```javascript    
+   instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
+```
 
-  instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
+#### replaceData() : To replace existing data with new data.
+```javascript    
+   instance.replaceData({'data':{"#1":"Agra","#2":"Delhi","#3":"Lucknow"}, 'status':"Checked", prefillData: 2});
+```
 
+#### destroy() : To destroy druthers
+```javascript    
+   instance.destroy();
+```
 
-#### destroy()
-    To destroy dropdown call 
-    instance.destroy();
-
-#### select()
-    #####to make automatic Selection
+#### select() : to promatically selection.
 
     For Single Selection
     instance.select({'key':'2'});
@@ -129,33 +134,32 @@ tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill 
     For multiple Selection
     instance.select({'key':[2,4]});
 
-#### deselect()
+#### deselect() : to promatically de-selection.
     For Single Selection
     instance.deselect({'key':'2.2'});
     
     For multiple Selection
     instance.deselect({'key':[2.2,4.1]});
 
+## Callback methods
+
 #### onChange()
-     This callback fire only when a value change in dropdown
+     Fire only when a value change in druthers
 
 #### onDeselect()
-     It's fire only when a value has been deselected
+     Fire only when a value has been deselected
 
 #### onTagCreate()
-    It's a callback function which is call when tag is created
+     Fire only when tag is created
 
 #### onTagClick()
-     It's a callback function which is call when user click on tag
+     Fire only when user click on tag
 
 #### onClickReq()
-     It's a callback function which is call when user is selected any value either by mouse/touce
+     Fire only when user select any value either by mouse/touce
 
 #### onClearTag()
-     Call back function for click on clearTag/clearAllTsg
-
-#### replaceData()
-     This function is to replace all data from new one.
+     Fire only when deselection done by node which passed in option -> "clearAllTag"
 
 
 ### Author
