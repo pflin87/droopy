@@ -2,7 +2,7 @@
 A customized "Dropdown, Choosen, Picker or Selector"  having single and multi select functionality with/without tags
 
 ## Demo
-[Click me --:](http://saeed3e.github.io/druthers/)
+[Try me out:](http://saeed3e.github.io/druthers/)
 
 -------------------------------------------------------
 
@@ -55,7 +55,7 @@ A customized "Dropdown, Choosen, Picker or Selector"  having single and multi se
 ### JSON Data format
 ```javascript
 
-For Single/MultiSelect Select
+For Single/MultiSelect:
 var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymbombay", "5a":"Saudi Arabia" };
 
 
@@ -141,6 +141,7 @@ tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill 
     For multiple Selection
     instance.deselect({'key':[2.2,4.1]});
 
+
 ## Callback methods
 
 #### onChange()
@@ -165,9 +166,10 @@ tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill 
 ### Author
    [Mohd Saeed Khan](http://www.saeed3e.com)
 
-### Contributer
+### Contributers
     Nitin
     Sakshi
     Mahima
 
-Copyright (c) 2015-Mohd Saeed Khan. See LICENSE for details.
+### Version 
+    v1.0.0 --> Stable version first release.
