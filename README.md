@@ -1,8 +1,8 @@
-# Dropdown
-Custom Dropdown having single and multi select functionality
+# Druthers
+A customized "Dropdown, Choosen, Picker or Selector"  having single and multi select functionality with/without tags
 
 ## Demo
-[Click me --:](http://saeed3e.github.io/dropdown/)
+[Try me out:](http://saeed3e.github.io/druthers/)
 
 -------------------------------------------------------
 
@@ -23,7 +23,14 @@ Custom Dropdown having single and multi select functionality
 
 
 ## Features
-
+* Single Select 
+* Multiple Select
+* Searchable data with on/off feature.
+* Prefill/Preselected data for single and multiple select cases
+* Tags formation
+* Tags can be created inside or outside(separate/different) of druthers
+* Can also used to represend data in list form.
+* Dependent feature for "single/multiple select" (e.g. DruthersA is depended to DruthersB and DruthersB is depended to DruthersC up to 'N' level.)
 
 -------------------------------------------------------
 
@@ -48,17 +55,16 @@ Custom Dropdown having single and multi select functionality
 ### JSON Data format
 ```javascript
 
-Single Dimension
-
+For Single/MultiSelect:
 var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymbombay", "5a":"Saudi Arabia" };
 
-MultiDimension Data (optGroup Case):
 
+For OptGroup/Category/Parent-Child Case:
 var dataJson = {
-                Country : { "1":"Afghanistan & india" , "2":"Albania" , "3":"Algeria" , "4":"zymbombay" },
-                State   : { "5a":"United & india" , "6a":"Albania" , "7a":"agra" , "8a":"United Kingdom"},
-                Distict : { "13":"Pakistan & india" , "14":"Albania" , "15":"Algeria" , "16":"United Kingdom"},
-                City    : { "17a":"Saudi Arabia & india" , "18a":"Albania" , "19a":"Algeria"}
+                Country : { "1":"India" , "2":"Albania" , "3":"Algeria" , "4":"America" },
+                State   : { "5a":"Delhi" , "6a":"Uttar Paradesh" , "7a":"GOA" , "8a":"United Kingdom"},
+                Distict : { "13":"Kanpur" , "14":"Lucknow" , "15":"Bareiily" , "16":"Moradabad"},
+                City    : { "17a":"Shahjahanpur" , "18a":"Bareilly" , "19a":"Lucknow"}
             }
 ```
 
@@ -67,10 +73,10 @@ var dataJson = {
 
 ```javascript
 var params = {
-	id : "single",  // should be id of dropdown main container
-	data : JSONdata 
-    };
-    new DD(params);
+    id : "single",  // should be id of druthers main container
+    data : JSONdata 
+};
+new DD(params);
 ```
 
 ### Parameters (Options)
@@ -78,99 +84,92 @@ var params = {
 
 Name  | Type | Default Value | Discription
 --- |--- | --- | ---
-allChk    | Boolean | false |   -   A super parent named All wil be at the top of all DD values. 2 Check ALL(super parent ) will check all parent and children below ALL. 4) Uncheck ALL(super parent ) will uncheck all parent and children below ALL.
-appendTags | | | 
-id  | string | none | A unique id for suggestor 
+allChk    | Boolean | false |
+appendTags | boolean | false | By default tags inserted in prepend manner to reverse it, set true. 
+id  | string | none | druthers main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
-clearTagId  | String |  Element Id from which you want to clear the dropdown selected values
-checkBox | Boolean | false | To enable/disable "Multiple Select" / "Single Select" feature
-isSearch | Boolean | true | To enable/disable search.
-maxTagsCount | Integer | 999 | To limit numbere of tags create.
-maxHeight | Integer|  300 | set the dropdown maximum height
-noDataTxt | String | No data found in search |   Text which is shown when no data will be found in search
-               |     |      |   - Check parent will check all children.
-               |     |  |   - Uncheck parent will uncheck children.
-               |     |  |   - check all children will check parent.
-
-
-
-
-
-preText | String  | "You have selected" |  it's a pretext which is show when you select any value from dropdown in "tagInSeparate" container case
-parentChkBox   | Boolean | false | You can have parent- child relationship with functionalities as.
-postText | String | "item(s)" |  it's a posttext which is show when you select any value from dropdown in "tagInSeparate" container case
-postPlaceholder | | |
+clearTagId  | String | none  | Node Id, to clear the druthers selected values
+isSearch | boolean| true | to enable/disable search
+maxTagsCount | Integer | 999 | to limit number of tags creation.
+maxHeight | Integer|  300 | To set druthers max height
+noDataTxt | String | "No data found in search" |   Text which is shown when no data will be found in search
+checkBox | boolean | false | to switch in singleSelect/multiSelect mode.
+preText | String  | "You have selected" |  to show pretext when selection made from druthers in "tagInSeparate" container case
+postText | String | "item(s)" |  to show posttext when selection made from druthers in "tagInSeparate" container case
+parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple become selectable and if user select any optgroup then all it's children automatically selected.
+postPlaceholder | string | none | In multiselect druthers to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
-prefillData | | |
-parentChkBox | | |
-searchBox | Boolean| true | Enable or disable dropdown search box
-sortPrefix | | |
-tagwithOptGroup | Boolean|  false| To create tags with optgroup/heading/category text
-tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Only valid for multiple select)
-tagTitle | Boolean | false | To enable title feature on tags
-tags  | Boolean | true | To enable/disable tags for "Multiple Select" case
-tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill case) when tags are created on prefill basis it automaitcally sorted to stop this behaviour, specify "false" parameter
+prefillData | Array/string/integer | none | to pre-selected data in druthers passed key(s) in Array/string/integer form.
+searchBox | Boolean| true | to enable or disable search box
+sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
+tagwithOptGroup | Boolean|  false| to creat tags with optgroup/parent text
+tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Valid only for multiple select)
+tagTitle | Boolean | false | To enable title text on tags
+tags  | Boolean | true | To enable/disable tags
+tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill case) to prevent automatic tags sorting
 
 
 ## Methods
 
-#### addData()
+#### addData() : To add new data in existing druthers
+```javascript    
+   instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
+```
 
-  instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
+#### replaceData() : To replace existing data with new data.
+```javascript    
+   instance.replaceData({'data':{"#1":"Agra","#2":"Delhi","#3":"Lucknow"}, 'status':"Checked", prefillData: 2});
+```
 
+#### destroy() : To destroy druthers
+```javascript    
+   instance.destroy();
+```
 
-#### destroy()
-    To destroy dropdown call 
-    instance.destroy();
+#### select() : to promatically selection.
 
-#### select()
     For Single Selection
     instance.select({'key':'2'});
     
     For multiple Selection
     instance.select({'key':[2,4]});
 
-#### deselect()
+#### deselect() : to promatically de-selection.
     For Single Selection
     instance.deselect({'key':'2.2'});
     
     For multiple Selection
     instance.deselect({'key':[2.2,4.1]});
 
+
+## Callback methods
+
 #### onChange()
-     This callback fire only when a value change in dropdown
+     Fire only when a value change in druthers
 
 #### onDeselect()
-     It's fire only when a value has been deselected
+     Fire only when a value has been deselected
 
 #### onTagCreate()
-     Fire only a tag has been created/append in DOM
-     It's a callback function which is call when a tag create 
+     Fire only when tag is created
 
 #### onTagClick()
-     It's fire only when clicked on tag's cross sign.
+     Fire only when user click on tag
 
 #### onClickReq()
-     It's fire only when we click/select on any listing item either via mouse or touch
-     arguments:
-        obj:
-        key:
-        sts:
-        tagElement:
+     Fire only when user select any value either by mouse/touce
 
 #### onClearTag()
-     Call back function for click on clearTag/clearAllTsg
-
-#### replaceData()
-     This function is to replace all data from new one.
+     Fire only when deselection done by node which passed in option -> "clearAllTag"
 
 
 ### Author
    [Mohd Saeed Khan](http://www.saeed3e.com)
 
-### Contributer
+### Contributers
     Nitin
     Sakshi
     Mahima
 
-Copyright (c) 2015-Mohd Saeed Khan. See LICENSE for details.
+### Version 
+    v1.0.0 --> Stable version first release.
