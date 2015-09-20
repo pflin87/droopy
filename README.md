@@ -172,8 +172,4 @@ tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill 
     Mahima
 
 ### Version 
-<<<<<<< HEAD
     v1.0.0 --> Stable version first release.
-=======
-    v1.0.0 --> Stable version first release.
->>>>>>> gh-pages
