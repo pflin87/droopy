@@ -4,7 +4,11 @@ var DD = function(obj, sts, key) {
     var defWth_fx = 30;
 
     X.obj = obj;
+
+    /*Added by Ankit saini*/
     var defWth = X.obj.postPlaceholder ? X.obj.postPlaceholder.width : 30;
+    //var defWth = obj.postPlaceholder ? obj.postPlaceholder.width || 30;
+    //End of code
 
     X.parentRefData = {};
     X.liCntrFx = [];
@@ -13,22 +17,24 @@ var DD = function(obj, sts, key) {
     X.liCntr = [];
     X.isReset = true; // to enable/disabled reset for replace or add data
     X.sortPrefix = obj.sortPrefix;
-    X.idKey = [];
+    //X.idKey = [];
     X.hidValue = [];
     X.maxTagsCount = obj.maxTagsCount || 999;
     X.pKey = key;
-    X.idLen = 0;
+    //X.idLen = 0;
     X.tagwithOptGroup = obj.tagwithOptGroup || false;
     X.srchBx = obj.searchBox === false ? false : true;
-    //X.sts = sts;
     //X.prevObj = prevObj;
     X.clrId = obj.clearTagId;
     //X.depend = obj.dependent;
     X.tagsSorting = obj.tagsSorting === false ? false : true;
     X.MrgPrfAryOrdr = obj.appendTags || false;
     X.onClearTag = []; // call back function for click on clearTag/clearAllTsg
-    for (X.idKey[X.idKey.length] in obj.id); // calculate the no of dropdown id's
-    X.idLen = X.idKey.length; // set no of id's in a single call
+
+    // for (X.idKey[X.idKey.length] in obj.id); // calculate the no of dropdown id's
+    //     console.log(X.idKey)
+
+    //X.idLen = X.idKey.length; // set no of id's in a single call
     X.sugHgt = obj.maxHeight || 300;
     X.clearAllInside = obj.clearAllInside || false;
     X.parentChkBox = obj.parentChkBox || false;
@@ -37,7 +43,9 @@ var DD = function(obj, sts, key) {
     X.layerOpenStatus = false;
     X.tags = obj.tags === false ? obj.tags : true;
     X.TagSpCnt = obj.tagInSepContainer || false;
-    X.id = X.idKey[0];
+    
+    X.id = obj.id;
+
     X.preTxt = obj.preText === false ? '' : obj.preText || 'You have selected';
     X.Allflg = '';
     X.postTxt = obj.postText === false ? '' : obj.postText || 'item(s)';
@@ -54,17 +62,20 @@ var DD = function(obj, sts, key) {
     X.optgrpObject = {};
     X.onChange = obj.onChange || emptyCalBckFun();
 
+    /*Add new data parameter with legacy support*/
+    X.dataObj = obj.data || obj.id[X.id][0];
+
     /**
      * [X.Ary: to store json data object]
      * @type {Object}
      */
     if (!X.pKey) {
         X.Ary = {};
-        X.Ary['A'] = obj.id[X.id][0];
+        X.Ary['A'] = X.dataObj;
     } else {
         if (!X.chkBox) DD.Ary[X.id] = {};
         if (!DD.Ary[X.id]) DD.Ary[X.id] = {};
-        DD.Ary[X.id][X.pKey] = obj.id[X.id][0];
+        DD.Ary[X.id][X.pKey] = X.dataObj;
         X.Ary = DD.Ary[X.id];
     }
 
@@ -72,7 +83,7 @@ var DD = function(obj, sts, key) {
      * [prefillData : to store prefill Data, with legacy support]
      * @type {[Array or string]}
      */
-    X.prefillData = obj.prefillData || X.obj.id[X.id][1];
+    X.prefillData = obj.prefillData || (X.obj.id[X.id]? X.obj.id[X.id][1] : '');
 
 
     /**
@@ -294,9 +305,9 @@ var DD = function(obj, sts, key) {
 
     function init(e) {
 
-        for (var i = 0; i < X.idLen; i++) {
+        //for (var i = 0; i < X.idLen; i++) {
 
-            var id = X.idKey[i],
+            var id = X.id,
                 clrAll, ifr;
 
             if (X.clearAllInside) {
@@ -379,7 +390,7 @@ var DD = function(obj, sts, key) {
                 keyDownEv(e, $(this));
             }).on('keyup', X.Fn.keyUpEv).on('blur', blurEv);
             X.layerOpenStatus = (X.srchBx !== false) ? true : false;
-        } // for loop end
+        //} // for loop end
 
 
         X.fillData(); // to append data dynamically at run time in Dropdown     
@@ -447,23 +458,14 @@ var DD = function(obj, sts, key) {
     }
 
     function focusEv(e) { //It fires when focus comes in dropdown text box
-        // if(DD.lastRef['lastOpen'] && DD.lastRef['lastOpen'] != X.id){
-        //          X.hideDD(DD.lastRef['lastOpen']);
-        //       }
-        // DD.lastRef['lastOpen'] = X.id;
-
 
         X.layerOpenStatus = (X.srchBx !== false) ? true : false;
         X.inpt = $(this);
 
         var id = $(this).data('id'),
             iD = id.split('_')[1];
-        //  dropLayer = $('#dp_'+iD);
-        //X.dpLyr = $('#dp_'+iD);
         X.DDSearch = $(this).parent('.DDSearch');
-
         showDD();
-
         $('#' + id).css({
             'color': '#444'
         });
@@ -486,7 +488,7 @@ var DD = function(obj, sts, key) {
             X.obj.form[0].submit();
         }
 
-        (kCd == 9 || kCd == 27) ? X.hideDD() : ''; // check why it is not work no keyUp                                
+        (kCd == 9 || kCd == 27) ? X.hideDD(): ''; // check why it is not work no keyUp                                
 
         if ((kCd >= 97 && kCd <= 122) || (kCd >= 65 && kCd <= 90) || (kCd >= 48 && kCd <= 57)) {
             if (!X.TagSpCnt && X.chkBox && X.tags !== false) {
@@ -549,9 +551,7 @@ var DD = function(obj, sts, key) {
                 }
             }
         }
-
     }
-
 
     X.fillDatainDropdwonLayer = function(id, html, i, inpTxt, opt) {
         var sRtx = X.inpElm;
@@ -576,7 +576,6 @@ var DD = function(obj, sts, key) {
         X.chkForParent(X.optgrpObject, X.DATA); //Check if all childrens inside a parent are prefill,then check parent(In parentChk case)
     };
 
-
     X.liMousehover = function() {
         var id = X.id;
         X.dpLyr.on('mouseover', 'li.pickVal', function() {
@@ -587,7 +586,7 @@ var DD = function(obj, sts, key) {
         }).on('mouseout', 'a', function() {
             $(this).removeClass('active');
         });
-    }
+    };
 
     function showDD() { // show dropdown 
         var id = X.id;
@@ -615,7 +614,7 @@ var DD = function(obj, sts, key) {
                 }, 500);
             }
         }*/
-    }
+    };
 
     X.max_height = function() { // set max heigh of dropdown according to the user specified if user not specified the set default maximum height                       
         var id = X.id,
@@ -643,7 +642,6 @@ var DD = function(obj, sts, key) {
             k[0].csb.reset();
         }
     };
-
 
     X.PickValuesFromDD = function() { // On selection it select the data from the dropdown and throw to specific(on the basic of ID) text field or or any HTML tag eg. Div, span, textarea          
         var q,
@@ -714,18 +712,20 @@ var DD = function(obj, sts, key) {
             opt = key[2] ? key[2] : '';
 
         //txt = txt.replace(/(<([^>]+)>)/ig, "").replace(/&amp;/gi, '&');
+
         X.inpElm ? X.inpElm.val(txt) : '';
         $('#' + id).find('.cross').show();
 
         var hidValue = X.dUnderScore(X.uEscp(key[1])).replace(X.sortPrefix, '');
+
         X.inpHid.attr({
             'value': hidValue
         }).data('optGroupKey', opt);
+
         if (X.layerOpenStatus) X.hideDD();
         X.onClickLi(obj, X.dUnderScore(X.uEscp(key[1])));
         X.onChange(hidValue);
     };
-
 
     X.CreateTags = function(anchor, t, prfAryindex, tagsFlag) { //checked
         var id = X.id;
@@ -809,11 +809,7 @@ var DD = function(obj, sts, key) {
             X.setLi(X.id);
             X.max_height();
         }
-
     };
-
-
-
 
     function IncreaseTxtBoxWth(mx) { // increase texbox width while entering the character accordingly
         if (mx > defWth) {
@@ -821,7 +817,7 @@ var DD = function(obj, sts, key) {
         } else {
             defWth += 1;
         }
-    }
+    };
 
     function DecreaseTxtBoxWth(id, mx) { //Decrease texbox width while removing or deleting the charecter
         if (X.inpElm.val() !== "" && defWth > defWth_fx) {
@@ -831,7 +827,7 @@ var DD = function(obj, sts, key) {
                 defWth -= 1;
             }
         }
-    }
+    };
 
     X.setValueInHiddenField = function(key, txt, isReset) {
         var id = X.id;
@@ -843,7 +839,7 @@ var DD = function(obj, sts, key) {
             var hdVal = X.inpHid.val();
             if (!hdVal) {
                 X.hidValue.push(key);
-                X.inpHid.val($.stringify(X.hidValue));
+                X.inpHid.val(JSON.stringify(X.hidValue));
                 $('#clrAll_' + id).show();
                 if (X.TagSpCnt) {
                     $('#' + X.TagSpCnt).show();
@@ -854,7 +850,7 @@ var DD = function(obj, sts, key) {
                 }
             } else {
                 X.hidValue.push(key);
-                X.inpHid.val($.stringify(X.hidValue));
+                X.inpHid.val(JSON.stringify(X.hidValue));
             }
             X.onTagCrt();
         } else if (isReset !== false) {
@@ -862,7 +858,7 @@ var DD = function(obj, sts, key) {
             X.inpHid.val('');
         }
         X.onChange(X.hidValue);
-    }
+    };
 
     init();
     X.PickValuesFromDD(); // Event deligation: event bind for data seelction or tag creation
@@ -885,8 +881,7 @@ DD.prototype.prefillDataFormation = function(prefillData) {
         njson = prefillData;
     }
     return njson;
-}
-
+};
 
 DD.prototype.removeAllTags = function() { //checked
     var X = this;
@@ -936,7 +931,7 @@ DD.prototype.destroy = function() {
     });
     X.inpElm.removeAttr('autocomplete style')
     X.inpElm.off('focus keydown keyup blur');
-}
+};
 
 DD.prototype.removeTag = function(tagId, txt, bool, remId) { //checked
     var X = this,
@@ -982,37 +977,27 @@ DD.prototype.removeTag = function(tagId, txt, bool, remId) { //checked
     };
 };
 
-
 DD.prototype.fillData = function() { //Append Dynamically data to dropdown                          
     var jSonAry = [];
     var _this = this;
     var Id = _this.id;
     var dependentIdKey = [];
 
-    for (var i = 0; i < _this.idLen; i++) {
+    //for (var i = 0; i < _this.idLen; i++) {
         var njson = _this.prefillDataFormation(_this.prefillData);
         jSonAry[Id] = njson;
         var j = 0,
             optBinding = 0;
-        // if (_this.obj.dependTo) {
-        //     if (_this.dpLyr && _this.dpLyr.length) {
-        //         _this.NLi = _this.appendData(_this.Ary, jSonAry, njson);
-        //         _this.dpLyr.find('ul').html(_this.NLi[0]);
-        //     } else {
-        //         _this.NLi = _this.appendData(Id, jSonAry, njson);
-        //         _this.fillDatainDropdwonLayer(Id, _this.NLi[0], i, _this.NLi[3], _this.NLi[4]);
-        //     }
-        // } else {
+
         if (_this.inpHid.val()) { // when user call dd form at trigger(eg:onClick) many times , then to solve the prefill duplicate problem
             _this.removeAllTags();
         }
 
         _this.NLi = _this.appendData(_this.Ary, jSonAry, njson);
-        _this.fillDatainDropdwonLayer(Id, _this.NLi[0], i, _this.NLi[3], _this.NLi[4]);
-        //}
+        _this.fillDatainDropdwonLayer(Id, _this.NLi[0], 0, _this.NLi[3], _this.NLi[4]);
         _this.liCntrFx = _this.liCntr = _this.NLi[1];
         _this.createTags_ifPrefillData(_this.NLi[2]);
-    } // end of for _this.idLen loop
+    //} // end of for _this.idLen loop
 }
 
 DD.prototype.appendData = function(DATA, jSonAry, njson, kCd) {
@@ -1120,14 +1105,13 @@ DD.prototype.appendData = function(DATA, jSonAry, njson, kCd) {
                     }
 
                 } else { //single Select without optgroup and without checkbox
-                    if (_this.prefillData == key) {
+                    if (_this.prefillData == mKey) {
                         html += _this.createLi(id + '_' + KY, DATA[M][key]);
                         _this.inpVal = key;
                         inpTxt = DATA[M][key];
                         cntr++;
                         !kCd ? _this.SingleSelection(DATA[M][key], [id, key]) : ''; // for single select dependent case with prefill
                     } else {
-
                         html += _this.createLi(id + '_' + KY, DATA[M][key]);
                         cntr++;
                     }
@@ -1159,7 +1143,6 @@ DD.prototype.appendData = function(DATA, jSonAry, njson, kCd) {
     return [html, cntr, Tagcontainer, inpTxt, optgroupId];
 };
 
-
 DD.prototype.chkForParent = function(optgrpObject, Data) {
     for (var key in optgrpObject) {
         if (optgrpObject[key].unchecked.length == 0) {
@@ -1169,7 +1152,7 @@ DD.prototype.chkForParent = function(optgrpObject, Data) {
             $('li[data-id="opt_all"]').find('a').removeClass('chkd');
         }
     }
-}
+};
 
 DD.prototype.Escp = function(key) { // encode key (space : [" "])
     return key ? key.replace(/\s/g, 'SxP') : '';
@@ -1242,18 +1225,18 @@ DD.prototype.clickMain = function() { //click event functionality of parent chec
         }
 
     })
-}
+};
 
 DD.prototype.searchData = function(innerHTML, sTxtValue, id, key, bindTo) {
     var html = '',
         _this = this,
         innerHTML = innerHTML.toString();
     getPos = (innerHTML.toLowerCase()).indexOf(sTxtValue.toLowerCase()),
-    strLower = innerHTML.toLowerCase(),
-    sTxtValueLower = sTxtValue.toLowerCase(),
-    spaceVal = ((strLower.indexOf(' ' + sTxtValueLower)) < 0) ? false : strLower.indexOf(' ' + sTxtValueLower),
-    bracketVal = ((strLower.indexOf('(' + sTxtValueLower)) < 0) ? false : strLower.indexOf('(' + sTxtValueLower),
-    slashVal = ((strLower.indexOf('/' + sTxtValueLower)) < 0) ? false : strLower.indexOf('/' + sTxtValueLower);
+        strLower = innerHTML.toLowerCase(),
+        sTxtValueLower = sTxtValue.toLowerCase(),
+        spaceVal = ((strLower.indexOf(' ' + sTxtValueLower)) < 0) ? false : strLower.indexOf(' ' + sTxtValueLower),
+        bracketVal = ((strLower.indexOf('(' + sTxtValueLower)) < 0) ? false : strLower.indexOf('(' + sTxtValueLower),
+        slashVal = ((strLower.indexOf('/' + sTxtValueLower)) < 0) ? false : strLower.indexOf('/' + sTxtValueLower);
     if (getPos >= 0 && ((spaceVal || bracketVal || slashVal)) || getPos === 0) {
         if (getPos) {
             if (spaceVal) {
@@ -1314,7 +1297,6 @@ DD.prototype.createParLi = function(KY, key, id, chkd) { // code by Nitin
     }
 };
 
-
 DD.prototype.createLi = function(id, txt, bnd, chkd) {
     bnd = bnd ? 'bindTo="' + bnd + '"' : '';
     chkd = chkd ? 'class="' + chkd + '"' : '';
@@ -1329,7 +1311,7 @@ DD.prototype.resetInpWidth = function(id) {
     $('#' + id).find('li.frst').css({
         'float': 'none'
     });
-}
+};
 
 DD.prototype.firstHighlight = function() {
     var X = this;
@@ -1361,7 +1343,7 @@ DD.prototype.emptyHidField = function(key, id, txt) { //checked
         finalVal;
     if (index !== -1) {
         X.hidValue.splice(index, 1);
-        finalVal = $.stringify(X.hidValue);
+        finalVal = JSON.stringify(X.hidValue);
     }
     if (X.hidValue.length == 0) {
         X.resetInpWidth(id);
@@ -1390,7 +1372,7 @@ DD.prototype.setInputText = function() {
             width: ''
         });
     }
-}
+};
 
 DD.prototype.setPlaceHolderAttribute = function() {
     var X = this;
@@ -1398,7 +1380,7 @@ DD.prototype.setPlaceHolderAttribute = function() {
     X.inpElm.parents('.frst').css({
         'float-left': 'none'
     });
-}
+};
 
 DD.prototype.removeData = function(obj) {
     var X = this,
@@ -1425,18 +1407,18 @@ DD.prototype.removeData = function(obj) {
     if (!$('#ul_' + X.id).find('li').length) {
         $('#' + X.id).find('.tagit').remove();
     }
-}
+};
 
 DD.prototype.removeBlockofData = function(obj) {
     this.removeData(obj);
-}
+};
 
 DD.prototype.addSelected = function(obj, tag_onof_flag) { // depricated removed in v10.0.0
     var id = this.id;
     for (var x in obj) {
         this.CreateTags(obj[x], id + '_' + x + '_A', 0, tag_onof_flag);
     }
-}
+};
 
 DD.prototype.deleteSelected = function(obj) { // depricated removed in v10.0.0
     var id = this.id;
@@ -1463,7 +1445,7 @@ DD.prototype.select = function(obj) { // key accept after removing sortprefix
         if (!X.optgrpNameRef[obj.key]) throw ('DD: Key not exist');
         X.SingleSelection(X.optgrpNameRef[obj.key].text, [id, obj.key]);
     }
-}
+};
 
 DD.prototype.deselect = function(obj) {
     var X = this;
@@ -1483,11 +1465,7 @@ DD.prototype.deselect = function(obj) {
         if (!X.optgrpNameRef[obj.key]) throw ('DD: Key not exist');
         X.SingleSelection('', [id]);
     }
-
-
-}
-
-
+};
 
 DD.prototype.addData = function(obj) { // to append data in dropdown
     var X = this;
@@ -1509,12 +1487,11 @@ DD.prototype.addData = function(obj) { // to append data in dropdown
     } else if (obj.status == "Unchecked") {
         this.removeBlockofData(obj);
     }
-}
+};
 
 DD.prototype.createTags_ifPrefillData = function(obj) {
     var X = this;
     var id = X.id;
-    //    if (X.sts != "Unchecked") {
     if (X.chkBox && obj) { // create tag on prefill basis
         for (var k = 0; k < obj.length; k++) {
             for (var z in X.prefillData) {
@@ -1525,9 +1502,8 @@ DD.prototype.createTags_ifPrefillData = function(obj) {
             X.CreateTags(obj[k][0], obj[k][1], z, X.tags);
         }
     }
-    //  }
     X.setInputText();
-}
+};
 
 DD.prototype.replaceData = function(params) {
     var X = this;
@@ -1572,10 +1548,6 @@ DD.prototype.replaceData = function(params) {
     }
 };
 
-
-
-
-
 DD.prototype.hideDD = function() {
     var X = this,
         id = X.id;
@@ -1596,75 +1568,31 @@ DD.prototype.hideDD = function() {
     }
 };
 
-
-
-
-
 DD.Ary = {};
 DD.lastRef = {};
+
+
+var ieObj = {
+    scrollHandler : function(container, scrollContainer, firstElement, curActiveTouple){
+        if(curActiveTouple.length){
+            var scrollTopPos;
+
+            var scrollCont_maxHeight        =   scrollContainer.height();
+            var scrollCont_scrollTop    =   scrollContainer.scrollTop();
+            var visible_bottom  =   scrollCont_maxHeight + scrollCont_scrollTop;            
+            var high_top        =   (curActiveTouple.position().top + scrollContainer.scrollTop());
+            var high_bottom     =   high_top + curActiveTouple.outerHeight();
+
+            if (high_bottom >= visible_bottom){
+                scrollTopPos = (high_bottom - scrollCont_maxHeight) > 0 ? high_bottom - scrollCont_maxHeight : 0;
+                scrollContainer.scrollTop(scrollTopPos);
+            } else if (high_top < scrollContainer.scrollTop()){
+                scrollTopPos = high_top;
+                scrollContainer.scrollTop(scrollTopPos);
+            }
+            return scrollTopPos;    
+        }       
+    }
+};
+
 //end of custom dropdown//
-
-/*
-v8.2.1 : Added option for adding placeholder and width of input post selection : Ankit Saini
-         Attribute name 'postPlaceholder'
- */
-
-/**
- *  v8.1.0: Bug fix (removeData not working in multiselect dependent case) : By saeed
- */
-
-// v8.0.3 : added & then removed replace tags function to deal with &, <, > (Sakshi)
-//        : "breakStringForBold" function added to handle html tags
-
-
-/**
- * v8.0.2: bug fix :  fix replace data function and remove some legacy support
- *         Optimize Code
- */
-
-/**
- * v8.0.1: bug fix :  correct data not fill in hidden filed by replaceData function
- */
-
-/**
- *  v8.0.0 :Enhancement: 
- *                      add onChange function  
-                        Add search Disabled feature for single Select Case
-                        optimize code // saeed
-                        creted function setLi, which  gets all the li back : sakshi
- */
-
-/*
-    v7.6.3 : line 164 check added for shift+tab + line 1317 input value set to blank when tagcount=0 //sakshi
-            fix sortPrefix problem exist from v7.5.2 :saeed
-            and optimze code
-*/
-
-//v7.6.2 : dropout placeholder fallback support :saeed
-//
-//v7.6.2 : dropout placeholder fallback support :saeed
-
-//v7.6.1 : Fix pre and post text bug :saeed
-
-//v7.6.0 : code format ctrl+shift+H :saeed
-//placeholder support is now by default false
-// v7.5.4 : after search if dd closed and user again open dd then all data do not appear. : saeed
-// v7.5.3 : set selected count in input field on check/ucheck of DD values : Sakshi
-// v7.5.2: Super parent enhancement :nitin
-// v7.5.1 resolve backspace width issue : mahima
-// v7.5.0 : add functions  : select and deselect , and optimize some peace of code
-// replaceData bug fix isReset : v7.4.2
-// replaceData bug fix for multi-dimentional data : v7.4.1
-// CSM enhancement Superparent of all Elements of drop down by Nitin: v7.4.0
-// changes my mahima for adding title attribute on parameter base (tagTitle: true/false) - (v7.3.2)
-// fix issue reported by Manish : saeed
-// fix : previous open dd not closing :saeed
-// parent checkbox enhancement : saeed
-// addData fn optimize : saeed
-// sortprefix issue: saeed
-// bug fixing: scroll handler: saeed
-
-
-
-/* callBack function list*/
-// onChange
