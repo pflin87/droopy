@@ -56,11 +56,10 @@ A customized "Dropdown, Choosen, Picker or Selector"  having single and multi se
 ```javascript
 
 For Single/MultiSelect Select
-
 var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymbombay", "5a":"Saudi Arabia" };
 
-For OptGroup/Category/Parent-Child Case:
 
+For OptGroup/Category/Parent-Child Case:
 var dataJson = {
                 Country : { "1":"India" , "2":"Albania" , "3":"Algeria" , "4":"America" },
                 State   : { "5a":"Delhi" , "6a":"Uttar Paradesh" , "7a":"GOA" , "8a":"United Kingdom"},
@@ -85,34 +84,29 @@ new DD(params);
 
 Name  | Type | Default Value | Discription
 --- |--- | --- | ---
-allChk    | Boolean | false |   -   A super parent named All wil be at the top of all DD values.
-      |         |       |       o   Check ALL(super parent ) will check all parent and children below ALL.
-      |     |       |       o   Uncheck ALL(super parent ) will uncheck all parent and children below ALL.
+allChk    | Boolean | false |
 appendTags | boolean | false | By default tags inserted in prepend manner to reverse it, set true. 
-id  | string | none | A unique id for suggestor 
+id  | string | none | druthers main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
 clearTagId  | String | none  | Node Id, to clear the druthers selected values
 isSearch | boolean| true | to enable/disable search
 maxTagsCount | Integer | 999 | to limit number of tags creation.
 maxHeight | Integer|  300 | To set druthers max height
 noDataTxt | String | No data found in search |   Text which is shown when no data will be found in search
-               |     |      |   - Check parent will check all children.
-               |     |  |   - Uncheck parent will uncheck children.
-               |     |  |   - check all children will check parent. 
-checkBox | true / false (default : false) | To enable/disable checkbox for "Multiple Select" / "Single Select" case
+checkBox | boolean | false | to switch in singleSelect/multiSelect mode.
 preText | String  | "You have selected" |  to show pretext when selection made from druthers in "tagInSeparate" container case
 postText | String | "item(s)" |  to show posttext when selection made from druthers in "tagInSeparate" container case
 parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple become selectable and if user select any optgroup then all it's children automatically selected.
 postPlaceholder | string | none | In multiselect druthers to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
-prefillData | Array/string/integer | none | To pre-selected data in druthers passed key(s) in Array.
-searchBox | Boolean| true | To Enable or disable search box
-sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting having numberic keys, add any string against each key in JSON data anad specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
-tagwithOptGroup | Boolean|  false| If you want to creat tags with optgroup text
+prefillData | Array/string/integer | none | to pre-selected data in druthers passed key(s) in Array/string/integer form.
+searchBox | Boolean| true | to enable or disable search box
+sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
+tagwithOptGroup | Boolean|  false| to creat tags with optgroup/parent text
 tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Valid only for multiple select)
 tagTitle | Boolean | false | To enable title text on tags
-tags  | Boolean | true | To enable/disable tags for "Multiple Select" case
-tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill case) to prevent automatically tags sorting
+tags  | Boolean | true | To enable/disable tags
+tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill case) to prevent automatic tags sorting
 
 
 ## Methods
