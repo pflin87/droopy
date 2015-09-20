@@ -55,11 +55,11 @@ A customized "Dropdown, Choosen, Picker or Selector"  having single and multi se
 ### JSON Data format
 ```javascript
 
-Single Dimension
+For Single/MultiSelect Select
 
 var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymbombay", "5a":"Saudi Arabia" };
 
-MultiDimension Data (optGroup Case):
+For OptGroup/Category/Parent-Child Case:
 
 var dataJson = {
                 Country : { "1":"India" , "2":"Albania" , "3":"Algeria" , "4":"America" },
