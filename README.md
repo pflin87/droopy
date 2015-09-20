@@ -1,4 +1,4 @@
-# Dropdown
+# Druthers
 Custom Dropdown having single and multi select functionality
 
 ## Demo
