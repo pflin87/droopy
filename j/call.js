@@ -67,7 +67,7 @@ var instance = new DD(obj4);
 
 var mult1 = {
     id: "dropdownAB",
-    data: "indDD",
+    data: indDD,
     sortPrefix: 'a',
     checkBox: true
 };

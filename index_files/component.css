@@ -13,10 +13,8 @@
 }
 
 .cbp-af-header .cbp-af-inner {
-	width: 90%;
-	max-width: 69em;
+	padding: 0 1em;
 	margin: 0 auto;
-	padding: 0 1.875em;
 }
 
 .cbp-af-header h1,
@@ -45,7 +43,7 @@
 }
 
 .cbp-af-header nav a {
-	color: #aaa;
+	color: #E4E4E4;
 	font-weight: 700;
 	margin: 0 0 0 20px;
 	font-size: 1.4em;
