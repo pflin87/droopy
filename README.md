@@ -2,7 +2,7 @@
 A customized "Dropdown, Choosen, Picker or Selector"  having single and multi select functionality with/without tags
 
 ## Demo
-[Click me --:](http://saeed3e.github.io/dropdown/)
+[Click me --:](http://saeed3e.github.io/druthers/)
 
 -------------------------------------------------------
 
@@ -74,8 +74,8 @@ var dataJson = {
 
 ```javascript
 var params = {
-	id : "single",  // should be id of dropdown main container
-	data : JSONdata 
+    id : "single",  // should be id of druthers main container
+    data : JSONdata 
 };
 new DD(params);
 ```
@@ -88,36 +88,31 @@ Name  | Type | Default Value | Discription
 allChk    | Boolean | false |   -   A super parent named All wil be at the top of all DD values.
       |         |       |       o   Check ALL(super parent ) will check all parent and children below ALL.
       |     |       |       o   Uncheck ALL(super parent ) will uncheck all parent and children below ALL.
-appendTags | | | 
+appendTags | boolean | false | By default tags inserted in prepend manner to reverse it, set true. 
 id  | string | none | A unique id for suggestor 
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
-clearTagId  | String |  Element Id from which you want to clear the dropdown selected values
-deselect | method | none | to make automatic deselection
-isSearch | | |
-maxTagsCount | Integer | 999 
-maxHeight | Integer|  300 | set the dropdown maximum height
+clearTagId  | String | none  | Node Id, to clear the druthers selected values
+isSearch | boolean| true | to enable/disable search
+maxTagsCount | Integer | 999 | to limit number of tags creation.
+maxHeight | Integer|  300 | To set druthers max height
 noDataTxt | String | No data found in search |   Text which is shown when no data will be found in search
                |     |      |   - Check parent will check all children.
                |     |  |   - Uncheck parent will uncheck children.
-               |     |  |   - check all children will check parent.
-onTagCreate | function  | function(){} (It's a callback function which is call when a tag create checkBox | true / false (default : false) | To enable/disable checkbox for "Multiple Select" / "Single Select" case
-onClickReq |function | none | function(obj,key,sts,tagElement){} (It's a callback function which is call when user is selected any value)
-onTagClick |function| none | function(obj){} (It's a callback function which is call when user click on tag cross sign)
-preText | String  | "You have selected" |  it's a pretext which is show when you select any value from dropdown in "tagInSeparate" container case
-parentChkBox   | Boolean | false | You can have parent- child relationship with functionalities as.
-postText | String | "item(s)" |  it's a posttext which is show when you select any value from dropdown in "tagInSeparate" container case
-postPlaceholder | | |
+               |     |  |   - check all children will check parent. 
+checkBox | true / false (default : false) | To enable/disable checkbox for "Multiple Select" / "Single Select" case
+preText | String  | "You have selected" |  to show pretext when selection made from druthers in "tagInSeparate" container case
+postText | String | "item(s)" |  to show posttext when selection made from druthers in "tagInSeparate" container case
+parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple become selectable and if user select any optgroup then all it's children automatically selected.
+postPlaceholder | string | none | In multiselect druthers to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
-prefillData | | |
-parentChkBox | | |
-searchBox | Boolean| true | Enable or disable dropdown search box
-select | method | none | to make automatic Selection
-sortPrefix | | |
+prefillData | Array/string/integer | none | To pre-selected data in druthers passed key(s) in Array.
+searchBox | Boolean| true | To Enable or disable search box
+sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting having numberic keys, add any string against each key in JSON data anad specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
 tagwithOptGroup | Boolean|  false| If you want to creat tags with optgroup text
 tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Valid only for multiple select)
 tagTitle | Boolean | false | To enable title text on tags
 tags  | Boolean | true | To enable/disable tags for "Multiple Select" case
-tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill case) when tags are created on prefill basis it automaitcally sorted to stop this behaviour, specify "false" parameter
+tagsSorting | Boolean|  true | In multiple select druthers(specially in prefill case) to prevent automatically tags sorting
 
 
 ## Methods
@@ -132,6 +127,8 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
     instance.destroy();
 
 #### select()
+    #####to make automatic Selection
+
     For Single Selection
     instance.select({'key':'2'});
     
@@ -152,13 +149,13 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
      It's fire only when a value has been deselected
 
 #### onTagCreate()
-     Fire only a tag has been created/append in DOM
+    It's a callback function which is call when tag is created
 
 #### onTagClick()
-     It's fire only when click on tag has been made
+     It's a callback function which is call when user click on tag
 
 #### onClickReq()
-     It's fire only when we click on any listing item either via mouse or touch
+     It's a callback function which is call when user is selected any value either by mouse/touce
 
 #### onClearTag()
      Call back function for click on clearTag/clearAllTsg
