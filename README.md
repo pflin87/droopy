@@ -26,12 +26,13 @@ Custom Dropdown having single and multi select functionality
 * Single Select 
 * Multiple Select
 * Search functionality.
-* Prefill/preselected for single and mulitple select cases
+* Prefill/preselected for single and multiple select cases
 * Create Tags for selection.
-* Tags can be created in saperate/different container(even not a part of dropdown) also.
+* Tags can be created in separate/different container (even not a part of dropdown) also.
 * Can enable or disabled search.
 * Also used when show data in list form
-* Also support dependent feature for single/multiple select at any number of level (e.g. DropdownC is depended to DropdownB and DropdownB is depended to DropdownA adn so on upto 'N' level.)
+* Also support dependent feature for single/multiple select at any number of level (e.g. DropdownC is depended to DropdownB and DropdownB is depended to DropdownA and so on up to 'N' level.)
+
 
 -------------------------------------------------------
 
@@ -175,7 +176,5 @@ tagsSorting | Boolean|  true | In multiple select dropdowns(specially in prefill
     Nitin
     Sakshi
     Mahima
-
-Copyright
 
 Copyright (c) 2015-Mohd Saeed Khan. See LICENSE for details.
