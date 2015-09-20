@@ -1,5 +1,5 @@
 # Druthers
-Custom Dropdown having single and multi select functionality
+A customized "Dropdown, Choosen, Picker or Selector"  having single and multi select functionality with/without tags
 
 ## Demo
 [Click me --:](http://saeed3e.github.io/dropdown/)
@@ -25,14 +25,12 @@ Custom Dropdown having single and multi select functionality
 ## Features
 * Single Select 
 * Multiple Select
-* Search functionality.
-* Prefill/preselected for single and multiple select cases
-* Create Tags for selection.
-* Tags can be created in separate/different container (even not a part of dropdown) also.
-* Can enable or disabled search.
-* Also used when show data in list form
-* Also support dependent feature for single/multiple select at any number of level (e.g. DropdownC is depended to DropdownB and DropdownB is depended to DropdownA and so on up to 'N' level.)
-
+* Searchable data with on/off feature.
+* Prefill/Preselected data for single and multiple select cases
+* Tags formation
+* Tags can be created inside or outside(separate/different) of druthers
+* Can also used to represend data in list form.
+* Dependent feature for "single/multiple select" (e.g. DruthersA is depended to DruthersB and DruthersB is depended to DruthersC up to 'N' level.)
 
 -------------------------------------------------------
 
@@ -78,8 +76,8 @@ var dataJson = {
 var params = {
 	id : "single",  // should be id of dropdown main container
 	data : JSONdata 
-    };
-    new DD(params);
+};
+new DD(params);
 ```
 
 ### Parameters (Options)
