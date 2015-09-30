@@ -1,5 +1,6 @@
-# Droope
-A customized "Droope, Dropdown, Choosen, Picker or Selector"  having single and multi select functionality with/without tags
+# DroopeJS
+
+DroopeJS/droope is a customized dropdown plugin with support of searching, tagging, single/multi select functionality and also definde dependent droope.
 
 ## Demo
 [Try me out:](http://saeed3e.github.io/droope/)
