@@ -62,11 +62,31 @@ var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymb
 
 For OptGroup/Category/Parent-Child Case:
 var dataJson = {
-                Country: {"1":"India”, "2":"Albania”, "3":"Algeria”, "4":"America”},
-                State   : {“5a":"Delhi", "6a":"Uttar Pradesh”, "7a":"GOA”, "8a":"United Kingdom"},
-                District: {"13":"Kanpur", "14":"Lucknow”, "15":"Bareiily”, "16":"Moradabad"},
-                City    : {"17a":"Shahjahanpur”, "18a":"Bareilly”, "19a":"Lucknow"}
-            }
+    "Country": {
+        "1": "India",
+        "2": "Albania",
+        "3": "Algeria",
+        "4": "America"
+    },
+    "State": {
+        "5a": "Delhi",
+        "6a": "Uttar Pradesh",
+        "7a": "GOA",
+        "8a": "United Kingdom"
+    },
+    "District": {
+        "13": "Kanpur",
+        "14": "Lucknow",
+        "15": "Bareiily",
+        "16": "Moradabad"
+    },
+    "City": {
+        "17a": "Shahjahanpur",
+        "18a": "Bareilly",
+        "19a": "Lucknow"
+    }
+}
+
 ```
 
 
