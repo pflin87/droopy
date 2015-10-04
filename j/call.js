@@ -139,3 +139,49 @@ var mult4 = {
     isSearch: false
 };
 new DD(mult4);
+
+function miscellaneous() {
+    /*miscellaneous Cases*/
+    var mis1 = {
+        id: "mis1",
+        data: CurrentLocObj,
+        checkBox: true,
+        searchBox: false,
+        tagInSepContainer: 'misTag1'
+
+    };
+    //new DD(mis1);
+
+    var mis2 = {
+        id: "mis2",
+        data: indDD,
+        checkBox: true,
+        searchBox: false,
+        tagInSepContainer: 'misTag1'
+
+    };
+    new DD(mis2);
+
+    new DD({
+        id: "mis",
+        data: indDD,
+        onChange: function() {
+            alert(9);
+        }
+    });
+
+}
+
+
+
+$('#sidebar-wrapper').on('click', 'li', function(argument) {
+    var _t = $(this);
+    $('#sidebar-wrapper li').removeClass('sidebar-brand');
+    $(this).addClass('sidebar-brand');
+    $('.codeContainer .col-lg-12').fadeOut().eq($(this).index()).fadeIn(function() {
+        if (_t.index() == 2 && !_t.data('set')) {
+            miscellaneous();
+            _t.data('set', true);
+        }
+    });
+});
