@@ -1,6 +1,6 @@
 # DroopeJS
 
-DroopeJS/droope is a customized dropdown plugin with support of searching, tagging, single/multi select functionality and also definde dependent droope.
+DroopeJS/droope is a customized dropdown plugin with the support of searching, tagging, single/multi select functionality and can also define dependent droope.
 
 ## Demo
 [Try me out:](http://saeed3e.github.io/droope/)
@@ -29,8 +29,8 @@ DroopeJS/droope is a customized dropdown plugin with support of searching, taggi
 * Searchable data with on/off feature.
 * Prefill/Preselected data for single and multiple select cases
 * Tags formation
-* Tags can be created inside or outside(separate/different) of droope
-* Can also used to represend data in list form.
+* Tags can be created inside or outside (separate/different) of droope
+* Can also be used to represent data in list form.
 * Dependent feature for "single/multiple select" (e.g. droope A is depended to droope B and droope B is depended to droope C up to 'N' level.)
 
 -------------------------------------------------------
@@ -62,10 +62,10 @@ var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymb
 
 For OptGroup/Category/Parent-Child Case:
 var dataJson = {
-                Country : { "1":"India" , "2":"Albania" , "3":"Algeria" , "4":"America" },
-                State   : { "5a":"Delhi" , "6a":"Uttar Paradesh" , "7a":"GOA" , "8a":"United Kingdom"},
-                Distict : { "13":"Kanpur" , "14":"Lucknow" , "15":"Bareiily" , "16":"Moradabad"},
-                City    : { "17a":"Shahjahanpur" , "18a":"Bareilly" , "19a":"Lucknow"}
+                Country: {"1":"India”, "2":"Albania”, "3":"Algeria”, "4":"America”},
+                State   : {“5a":"Delhi", "6a":"Uttar Pradesh”, "7a":"GOA”, "8a":"United Kingdom"},
+                District: {"13":"Kanpur", "14":"Lucknow”, "15":"Bareiily”, "16":"Moradabad"},
+                City    : {"17a":"Shahjahanpur”, "18a":"Bareilly”, "19a":"Lucknow"}
             }
 ```
 
@@ -74,8 +74,8 @@ var dataJson = {
 
 ```javascript
 var params = {
-    id : "single",  // should be id of droope main container
-    data : JSONdata 
+    id: "single",  // should be id of droope main container
+    data: JSONdata 
 };
 new DD(params);
 ```
@@ -83,31 +83,31 @@ new DD(params);
 ### Parameters (Options)
 
 
-Name  | Type | Default Value | Discription
+Name  | Type | Default Value | Description
 --- |--- | --- | ---
 allChk    | Boolean | false |
-appendTags | boolean | false | By default tags inserted in prepend manner, to reverse it set true. 
+appendTags | Boolean | false | By default tags inserted in prepend manner, to reverse it set true. 
 id  | string | none | droope main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
 clearTagId  | String | none  | Node Id, to clear the droope selected values
-isSearch | boolean| true | to enable/disable search
-maxTagsCount | Integer | 999 | to limit number of tags creation.
+isSearch | Boolean| true | to enable/disable search
+maxTagsCount | Integer | 999 | to limit the number of tags creation.
 maxHeight | Integer|  300 | To set droope max height
 noDataTxt | String | "No data found in search" |   Text which is shown when no data will be found in search
-checkBox | boolean | false | to switch in singleSelect/multiSelect mode.
+checkBox | Boolean | false | to switch in singleSelect/multiSelect mode.
 preText | String  | "You have selected" |  to show pretext when selection made from droope in "tagInSeparate" container case
 postText | String | "item(s)" |  to show posttext when selection made from droope in "tagInSeparate" container case
-parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple become selectable and if user select any optgroup then all it's children automatically selected.
+parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple becomes selectable and if a user selects any optgroup then all its children automatically selected.
 postPlaceholder | string | none | In multiselect droope to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
 prefillData | Array/string/integer | none | to pre-selected data in droope passed key(s) in Array/string/integer form.
 searchBox | Boolean| true | to enable or disable search box
 sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
-tagwithOptGroup | Boolean|  false| to creat tags with optgroup/parent text
-tagInSepContainer | String | none | Continer id in which you want to show dropdonw tags (note- Valid only for multiple select)
+tagwithOptGroup | Boolean|  false| to create tags with optgroup/parent text
+tagInSepContainer | String | none | Container id in which you want to show dropdown tags (note- Valid only for multiple select)
 tagTitle | Boolean | false | To enable title text on tags
 tags  | Boolean | true | To enable/disable tags
-tagsSorting | Boolean|  true | In multiple select droope(specially in prefill case) to prevent automatic tags sorting
+tagsSorting | Boolean|  true | In multiple select droope (especially in prefill case) to prevent automatic tags sorting
 
 
 ## Methods
@@ -178,7 +178,7 @@ instance.select({
         id: "mis",
         data: indDD,
         onChange: function() {
-            alert('On Change Fired');
+            alert('On Change callback function Fired');
         }
     });
 ```
@@ -190,7 +190,7 @@ instance.select({
         id: "mis",
         data: indDD,
         onDeselect: function() {
-            alert('On Deselect Fired');
+            alert('On Deselect callback function Fired');
         }
     });
 ```
@@ -202,31 +202,31 @@ instance.select({
         id: "mis",
         data: indDD,
         onTagCreate: function() {
-            alert('On onTagCreate Fired');
+            alert('On onTagCreate callback function Fired');
         }
     });
 ```
 
 #### onTagClick()
-     Fire only when user click on tag
+     Fire only when user clicks on tag
 ```javascript        
     new DD({
         id: "mis",
         data: indDD,
         onTagClick: function() {
-            alert('On onTagClick Fired');
+            alert('On onTagClick callback function Fired');
         }
     });
 ```
 
 #### onClickReq()
-     Fire only when user select any value either by mouse/touce
+     Fire only when user selects any value either by mouse/touch
 ```javascript        
     new DD({
         id: "mis",
         data: indDD,
         onClickReq: function() {
-            alert('On onClickReq Fired');
+            alert('On onClickReq callback function Fired');
         }
     });
 ```
@@ -239,7 +239,7 @@ instance.select({
         id: "mis",
         data: indDD,
         onClearTag: function() {
-            alert('On onClearTag Fired');
+            alert('On onClearTag callback function Fired');
         }
     });
 ```
