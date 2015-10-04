@@ -87,7 +87,7 @@ Name  | Type | Default Value | Description
 --- |--- | --- | ---
 allChk    | Boolean | false |
 appendTags | Boolean | false | By default tags inserted in prepend manner, to reverse it set true. 
-id  | string | none | droope main container Id.
+id  | String | none | droope main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
 clearTagId  | String | none  | Node Id, to clear the droope selected values
 isSearch | Boolean| true | to enable/disable search
@@ -98,11 +98,11 @@ checkBox | Boolean | false | to switch in singleSelect/multiSelect mode.
 preText | String  | "You have selected" |  to show pretext when selection made from droope in "tagInSeparate" container case
 postText | String | "item(s)" |  to show posttext when selection made from droope in "tagInSeparate" container case
 parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple becomes selectable and if a user selects any optgroup then all its children automatically selected.
-postPlaceholder | string | none | In multiselect droope to replace default placeholder with postPlaceholder when input box become squeeze.
+postPlaceholder | String | none | In multiselect droope to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
-prefillData | Array/string/integer | none | to pre-selected data in droope passed key(s) in Array/string/integer form.
+prefillData | Array/String/integer | none | to pre-selected data in droope passed key(s) in Array/String/integer form.
 searchBox | Boolean| true | to enable or disable search box
-sortPrefix | string | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
+sortPrefix | String | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
 tagwithOptGroup | Boolean|  false| to create tags with optgroup/parent text
 tagInSepContainer | String | none | Container id in which you want to show dropdown tags (note- Valid only for multiple select)
 tagTitle | Boolean | false | To enable title text on tags
