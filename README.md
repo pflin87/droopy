@@ -114,12 +114,26 @@ tagsSorting | Boolean|  true | In multiple select droope(specially in prefill ca
 
 #### addData() : To add new data in existing droope
 ```javascript    
-   instance.addData({'data':{"saeed":"saeedkhan"}, 'status':"Checked",prefillData:[2.2,4.1]});
+   instance.addData({
+    'data': {
+        "saeed": "saeedkhan"
+    },
+    'status': "Checked",
+    prefillData: [2.2, 4.1]
+});
 ```
 
 #### replaceData() : To replace existing data with new data.
 ```javascript    
-   instance.replaceData({'data':{"#1":"Agra","#2":"Delhi","#3":"Lucknow"}, 'status':"Checked", prefillData: 2});
+   instance.replaceData({
+    'data': {
+        "#1": "Agra",
+        "#2": "Delhi",
+        "#3": "Lucknow"
+    },
+    'status': "Checked",
+    prefillData: 2
+});
 ```
 
 #### destroy() : To destroy droope
@@ -129,40 +143,106 @@ tagsSorting | Boolean|  true | In multiple select droope(specially in prefill ca
 
 #### select() : to promatically selection.
 
-    For Single Selection
-    instance.select({'key':'2'});
-    
-    For multiple Selection
-    instance.select({'key':[2,4]});
+```javascript    
+For Single Selection
+instance.select({
+    'key': '2'
+});
+
+For multiple Selection
+instance.select({
+    'key': [2, 4]
+});
+```
 
 #### deselect() : to promatically de-selection.
+```javascript        
     For Single Selection
-    instance.deselect({'key':'2.2'});
+    instance.deselect({
+        'key': '2.2'
+    });
     
     For multiple Selection
-    instance.deselect({'key':[2.2,4.1]});
+    instance.deselect({
+        'key': [2.2, 4.1]
+    });
+```
 
 
 ## Callback methods
 
 #### onChange()
      Fire only when a value change in droope
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onChange: function() {
+            alert('On Change Fired');
+        }
+    });
+```
 
 #### onDeselect()
      Fire only when a value has been deselected
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onDeselect: function() {
+            alert('On Deselect Fired');
+        }
+    });
+```
 
 #### onTagCreate()
      Fire only when tag is created
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onTagCreate: function() {
+            alert('On onTagCreate Fired');
+        }
+    });
+```
 
 #### onTagClick()
      Fire only when user click on tag
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onTagClick: function() {
+            alert('On onTagClick Fired');
+        }
+    });
+```
 
 #### onClickReq()
      Fire only when user select any value either by mouse/touce
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onClickReq: function() {
+            alert('On onClickReq Fired');
+        }
+    });
+```
+
 
 #### onClearTag()
      Fire only when deselection done by node which passed in option -> "clearAllTag"
-
+```javascript        
+    new DD({
+        id: "mis",
+        data: indDD,
+        onClearTag: function() {
+            alert('On onClearTag Fired');
+        }
+    });
+```
 
 ### Author
    [Mohd Saeed Khan](http://www.saeed3e.com)
