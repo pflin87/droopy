@@ -1,6 +1,6 @@
 # DroopyJS
 
-DroopyJS/droopy is a customized dropdown plugin with the support of searching, tagging, single/multi select functionality and can also define dependent droopy.
+DroopyJS/droopy is a customized dropdown plugin with the support of searching, tagging, single-select or multi-select functionality and can also define dependent droopy.
 
 ## Demo
 [Try me out:](http://saeed3e.github.io/droopy/)
@@ -31,7 +31,7 @@ DroopyJS/droopy is a customized dropdown plugin with the support of searching, t
 * Tags formation
 * Tags can be created inside or outside (separate/different) of droopy
 * Can also be used to represent data in list form.
-* Dependent feature for "single/multiple select" (e.g. droopy A is depended to droopy B and droopy B is depended to droopy C up to 'N' level.)
+* Dependent feature for "single/multiple select" (e.g. droopy A depends to droopy B and droopy B depends to droopy C up to 'N' level.)
 
 -------------------------------------------------------
 
@@ -116,9 +116,9 @@ maxHeight | Integer|  300 | To set droopy max height
 noDataTxt | String | "No data found in search" |   Text which is shown when no data will be found in search
 checkBox | Boolean | false | to switch in singleSelect/multiSelect mode.
 preText | String  | "You have selected" |  to show pretext when selection made from droopy in "tagInSeparate" container case
-postText | String | "item(s)" |  to show posttext when selection made from droopy in "tagInSeparate" container case
+postText | String | "item(s)" |  to show post text when selection made from droopy in "tagInSeparate" container case
 parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple becomes selectable and if a user selects any optgroup then all its children automatically selected.
-postPlaceholder | String | none | In multiselect droopy to replace default placeholder with postPlaceholder when input box become squeeze.
+postPlaceholder | String | none | In multi-select droopy to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
 prefillData | Array/String/integer | none | to pre-selected data in droopy passed key(s) in Array/String/integer form.
 searchBox | Boolean| true | to enable or disable search box
