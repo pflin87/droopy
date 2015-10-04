@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Druthers</title>
-    <meta name="keywords" content="Druthers, picker, javascript, custom dropdown, dropdown, jQuery dropdown, single select dropdwon, multiselect dropdown, dropdown with tags, customized dropdown">
+    <title>DroopyJS</title>
+    <meta name="keywords" content="Droopy, DroopyJS, picker, javascript, custom dropdown, dropdown, jQuery dropdown, single select dropdwon, multiselect dropdown, dropdown with tags, customized dropdown">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="c/default.css">
@@ -18,10 +18,10 @@
     <div class="container">
         <div class="cbp-af-header">
             <div class="cbp-af-inner">
-                <h1>Druthers</h1>
+                <h1>DroopyJS</h1>
                 <nav>
                     <a style="color:#25E7D7" href="#">Demo</a>
-                    <a href="https://github.com/saeed3e/druthers/blob/master/README.md">Documentation</a>
+                    <a href="https://github.com/saeed3e/droopy/blob/master/README.md">Documentation</a>
                     <a href="https://github.com/naukri-engineering">Other Plugins</a>
                 </nav>
             </div>
@@ -38,11 +38,10 @@
                 <li>
                     <a href="#">Multi Select Cases</a>
                 </li>
-                <!-- <li>
-                    <a href="#">callBack Functions</a>
-                </li> -->
+                <li>
+                    <a href="#">Miscellaneous Cases</a>
+                </li>
             </ul>
-            <!-- <a href="#">Author: Saeed</a> -->
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
@@ -191,6 +190,44 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12">
+                            <h3>Default open state</h3>
+                            <!-- <div id="mis1" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                            <ul id="misTag1" class="mt10 mb10 ofHd"></ul>
+                            <div id="mis2" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="mt10 mb10 ofHd"></ul>
+                            <div id="mis" class="ddwn">
+                                <div class="DDwrap">
+                                    <ul class="DDsearch">
+                                        <li class="frst">
+                                            <div class="DDinputWrap">
+                                                <input type="text" name="xyz" class="srchTxt" placeholder="multiSearch" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,16 +239,8 @@
     <!-- Bootstrap Core JavaScript -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="j/druthers_v1.0.0.js"></script>
+    <script type="text/javascript" src="j/droopy_v1.0.0.js"></script>
     <script type="text/javascript" src="j/data.js"></script>
     <script type="text/javascript" src="j/call.js"></script>
-    <!-- Menu Toggle Script -->
-    <script>
-    $('#sidebar-wrapper').on('click', 'li', function(argument) {
-        $('#sidebar-wrapper li').removeClass('sidebar-brand')
-        $(this).addClass('sidebar-brand')
-        $('.codeContainer .col-lg-12').fadeOut().eq($(this).index()).fadeIn();
-    })
-    </script>
 
 </html>
