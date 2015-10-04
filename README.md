@@ -1,9 +1,9 @@
-# DroopeJS
+# DroopyJS
 
-DroopeJS/droope is a customized dropdown plugin with the support of searching, tagging, single/multi select functionality and can also define dependent droope.
+DroopyJS/droopy is a customized dropdown plugin with the support of searching, tagging, single/multi select functionality and can also define dependent droopy.
 
 ## Demo
-[Try me out:](http://saeed3e.github.io/droope/)
+[Try me out:](http://saeed3e.github.io/droopy/)
 
 -------------------------------------------------------
 
@@ -29,9 +29,9 @@ DroopeJS/droope is a customized dropdown plugin with the support of searching, t
 * Searchable data with on/off feature.
 * Prefill/Preselected data for single and multiple select cases
 * Tags formation
-* Tags can be created inside or outside (separate/different) of droope
+* Tags can be created inside or outside (separate/different) of droopy
 * Can also be used to represent data in list form.
-* Dependent feature for "single/multiple select" (e.g. droope A is depended to droope B and droope B is depended to droope C up to 'N' level.)
+* Dependent feature for "single/multiple select" (e.g. droopy A is depended to droopy B and droopy B is depended to droopy C up to 'N' level.)
 
 -------------------------------------------------------
 
@@ -61,7 +61,7 @@ var JSONdata = { "1a":"India", "2a":"Australia", "3a":"United State", "4a":"Zymb
 
 
 For OptGroup/Category/Parent-Child Case:
-var dataJson = {
+var JSONdata = {
     "Country": {
         "1": "India",
         "2": "Albania",
@@ -94,7 +94,7 @@ var dataJson = {
 
 ```javascript
 var params = {
-    id: "single",  // should be id of droope main container
+    id: "single",  // should be id of droopy main container
     data: JSONdata 
 };
 new DD(params);
@@ -107,32 +107,32 @@ Name  | Type | Default Value | Description
 --- |--- | --- | ---
 allChk    | Boolean | false |
 appendTags | Boolean | false | By default tags inserted in prepend manner, to reverse it set true. 
-id  | String | none | droope main container Id.
+id  | String | none | droopy main container Id.
 clearAllInside | Boolean | false |    {'Text':'ClearAll'}
-clearTagId  | String | none  | Node Id, to clear the droope selected values
+clearTagId  | String | none  | Node Id, to clear the droopy selected values
 isSearch | Boolean| true | to enable/disable search
 maxTagsCount | Integer | 999 | to limit the number of tags creation.
-maxHeight | Integer|  300 | To set droope max height
+maxHeight | Integer|  300 | To set droopy max height
 noDataTxt | String | "No data found in search" |   Text which is shown when no data will be found in search
 checkBox | Boolean | false | to switch in singleSelect/multiSelect mode.
-preText | String  | "You have selected" |  to show pretext when selection made from droope in "tagInSeparate" container case
-postText | String | "item(s)" |  to show posttext when selection made from droope in "tagInSeparate" container case
+preText | String  | "You have selected" |  to show pretext when selection made from droopy in "tagInSeparate" container case
+postText | String | "item(s)" |  to show posttext when selection made from droopy in "tagInSeparate" container case
 parentChkBox   | Boolean | false | After enable this option parent/optgroup tuple becomes selectable and if a user selects any optgroup then all its children automatically selected.
-postPlaceholder | String | none | In multiselect droope to replace default placeholder with postPlaceholder when input box become squeeze.
+postPlaceholder | String | none | In multiselect droopy to replace default placeholder with postPlaceholder when input box become squeeze.
 preventClickFor | | |
-prefillData | Array/String/integer | none | to pre-selected data in droope passed key(s) in Array/String/integer form.
+prefillData | Array/String/integer | none | to pre-selected data in droopy passed key(s) in Array/String/integer form.
 searchBox | Boolean| true | to enable or disable search box
 sortPrefix | String | none | if JSON data having numeric keys and to prevent JSON data sorting, add any string against each key in JSON data and specify the same prefix string in this parameter [reference](http://stackoverflow.com/questions/3186770/chrome-re-ordering-object-keys-if-numerics-is-that-normal-expected)
 tagwithOptGroup | Boolean|  false| to create tags with optgroup/parent text
 tagInSepContainer | String | none | Container id in which you want to show dropdown tags (note- Valid only for multiple select)
 tagTitle | Boolean | false | To enable title text on tags
 tags  | Boolean | true | To enable/disable tags
-tagsSorting | Boolean|  true | In multiple select droope (especially in prefill case) to prevent automatic tags sorting
+tagsSorting | Boolean|  true | In multiple select droopy (especially in prefill case) to prevent automatic tags sorting
 
 
 ## Methods
 
-#### addData() : To add new data in existing droope
+#### addData() : To add new data in existing droopy
 ```javascript    
    instance.addData({
     'data': {
@@ -156,7 +156,7 @@ tagsSorting | Boolean|  true | In multiple select droope (especially in prefill 
 });
 ```
 
-#### destroy() : To destroy droope
+#### destroy() : To destroy droopy
 ```javascript    
    instance.destroy();
 ```
@@ -192,7 +192,7 @@ instance.select({
 ## Callback methods
 
 #### onChange()
-     Fire only when a value change in droope
+     Fire only when a value change in droopy
 ```javascript        
     new DD({
         id: "mis",
